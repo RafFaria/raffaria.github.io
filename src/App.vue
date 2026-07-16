@@ -13,7 +13,7 @@ import {
   Wallet,
   Zap
 } from '@lucide/vue'
-import logoUrl from '../logo.jfif'
+import logoUrl from '../logo.png'
 
 onMounted(() => {
   const revealItems = document.querySelectorAll('[data-reveal]')
