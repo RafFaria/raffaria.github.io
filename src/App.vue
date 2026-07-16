@@ -13,6 +13,7 @@ import {
   Wallet,
   Zap
 } from '@lucide/vue'
+import logoUrl from '../logo.jfif'
 
 onMounted(() => {
   const revealItems = document.querySelectorAll('[data-reveal]')
@@ -88,7 +89,7 @@ const features = [
   <main class="page-shell">
     <header class="nav">
       <a class="brand" href="#">
-        <span class="brand-mark">T</span>
+        <img class="brand-logo" :src="logoUrl" alt="Logo TAMP Estampados" />
         <span>TAMP</span>
       </a>
 
