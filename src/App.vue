@@ -41,46 +41,46 @@ onMounted(() => {
 
 const collections = [
   {
-    title: 'Chromatic Drift',
-    artist: 'Nina Campos',
-    price: '2.48 ETH',
-    bid: '18 lances',
-    img: 'https://images.unsplash.com/photo-1635322966219-b75ed372eb01?auto=format&fit=crop&w=900&q=85'
+    title: 'Caneca Personalizada',
+    artist: 'Arte, frase ou foto',
+    price: 'Sob consulta',
+    bid: 'Presente ideal',
+    img: 'https://images.unsplash.com/photo-1577937927133-66ef06acdf18?auto=format&fit=crop&w=900&q=85'
   },
   {
-    title: 'Glass Genesis',
-    artist: 'Theo Lima',
-    price: '1.92 ETH',
-    bid: '11 lances',
-    img: 'https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?auto=format&fit=crop&w=900&q=85'
+    title: 'Camiseta Estampada',
+    artist: 'Algodao e silk/DTF',
+    price: 'Sob consulta',
+    bid: 'Pedido unitario',
+    img: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=85'
   },
   {
-    title: 'After Neon',
-    artist: 'Mara Yu',
-    price: '3.16 ETH',
-    bid: '25 lances',
-    img: 'https://images.unsplash.com/photo-1634986666676-ec8fd927c23d?auto=format&fit=crop&w=900&q=85'
+    title: 'Kit Empresa',
+    artist: 'Marca, evento ou equipe',
+    price: 'Orcamento rapido',
+    bid: 'Pequenas tiragens',
+    img: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=900&q=85'
   },
   {
-    title: 'Quiet Signal',
-    artist: 'Joao Rios',
-    price: '0.84 ETH',
-    bid: '7 lances',
-    img: 'https://images.unsplash.com/photo-1643101454431-6cfc4f10beee?auto=format&fit=crop&w=900&q=85'
+    title: 'Lembranca Criativa',
+    artist: 'Datas especiais',
+    price: 'Feito sob medida',
+    bid: 'Entrega combinada',
+    img: 'https://images.unsplash.com/photo-1512909006721-3d6018887383?auto=format&fit=crop&w=900&q=85'
   }
 ]
 
 const sellers = [
-  ['AL', 'Aline Voss', '14.2 ETH', '#f06c64'],
-  ['RC', 'Rafa Costa', '12.8 ETH', '#35c2ff'],
-  ['MY', 'Maya Yuen', '10.5 ETH', '#f7c948'],
-  ['KO', 'Koji One', '8.9 ETH', '#54d17a']
+  ['01', 'Voce envia a ideia', 'Foto, frase, logo ou referencia', '#f06c64'],
+  ['02', 'A TAMP monta a arte', 'Ajustamos para ficar bonito no produto', '#35c2ff'],
+  ['03', 'Voce aprova', 'Sem produzir antes da confirmacao', '#f7c948'],
+  ['04', 'Produzimos seu pedido', 'Canecas e camisetas personalizadas', '#54d17a']
 ]
 
 const features = [
-  { icon: Wallet, title: 'Carteira conectada', text: 'Fluxo direto para colecionar, listar e acompanhar seus ativos.' },
-  { icon: ShieldCheck, title: 'Contratos verificados', text: 'Sinais de autenticidade e histórico de propriedade em destaque.' },
-  { icon: Zap, title: 'Lances em tempo real', text: 'Atualizações rápidas para drops, leilões e ofertas concorrentes.' }
+  { icon: Wallet, title: 'Atendimento pelo WhatsApp', text: 'Voce chama, envia sua ideia e recebe orientacao para transformar em produto.' },
+  { icon: ShieldCheck, title: 'Arte com aprovacao', text: 'A criacao e ajustada antes da producao para evitar surpresa no resultado final.' },
+  { icon: Zap, title: 'Pedidos para pessoas e empresas', text: 'Produtos unitarios, presentes, eventos, equipes e pequenas tiragens.' }
 ]
 </script>
 
@@ -88,15 +88,15 @@ const features = [
   <main class="page-shell">
     <header class="nav">
       <a class="brand" href="#">
-        <span class="brand-mark">D</span>
-        <span>Dyat</span>
+        <span class="brand-mark">T</span>
+        <span>TAMP</span>
       </a>
 
       <nav class="nav-links" aria-label="Navegacao principal">
-        <a href="#collections">Colecoes</a>
-        <a href="#auctions">Leiloes</a>
-        <a href="#creators">Criadores</a>
-        <a href="#market">Mercado</a>
+        <a href="#products">Produtos</a>
+        <a href="#process">Como funciona</a>
+        <a href="#contact">Contato</a>
+        <a href="#about">TAMP</a>
       </nav>
 
       <div class="nav-actions">
@@ -108,43 +108,43 @@ const features = [
         </button>
         <button class="wallet-btn">
           <Wallet :size="18" />
-          Conectar
+          WhatsApp
         </button>
       </div>
     </header>
 
     <section class="hero">
       <div class="hero-copy" data-reveal>
-        <p class="eyebrow"><Sparkles :size="17" /> Mercado criativo Web3</p>
-        <h1>Descubra arte digital rara em drops curados.</h1>
+        <p class="eyebrow"><Sparkles :size="17" /> Canecas e camisetas personalizadas</p>
+        <h1>Crie estampas unicas com a TAMP.</h1>
         <p class="hero-text">
-          Uma experiencia de marketplace inspirada no visual da referencia, com cards vibrantes,
-          leiloes ativos, criadores em destaque e uma interface pronta para evoluir em Vue 3.
+          Transformamos ideias, fotos, frases e marcas em produtos personalizados para presente,
+          eventos, empresas e momentos especiais.
         </p>
         <div class="hero-actions">
-          <a class="primary-btn" href="#collections">
-            Explorar agora
+          <a class="primary-btn" href="https://wa.me/5541988180340" target="_blank" rel="noreferrer">
+            Pedir orcamento
             <ArrowRight :size="19" />
           </a>
-          <a class="secondary-btn" href="#creators">Ver criadores</a>
+          <a class="secondary-btn" href="#products">Ver produtos</a>
         </div>
         <dl class="stats">
           <div data-reveal style="--delay: 120ms">
-            <dt>38k+</dt>
-            <dd>Obras listadas</dd>
+            <dt>100%</dt>
+            <dd>Personalizado</dd>
           </div>
           <div data-reveal style="--delay: 210ms">
-            <dt>12k</dt>
-            <dd>Colecionadores</dd>
+            <dt>1+</dt>
+            <dd>Pedido unitario</dd>
           </div>
           <div data-reveal style="--delay: 300ms">
-            <dt>94%</dt>
-            <dd>Vendas verificadas</dd>
+            <dt>41</dt>
+            <dd>Atendimento local</dd>
           </div>
         </dl>
       </div>
 
-      <div class="hero-art mascot-stage" aria-label="Mascote animado do marketplace" data-reveal style="--delay: 180ms">
+      <div class="hero-art mascot-stage" aria-label="Mascote animado da TAMP" data-reveal style="--delay: 180ms">
         <span class="spark spark-one"></span>
         <span class="spark spark-two"></span>
         <span class="spark spark-three"></span>
@@ -168,7 +168,7 @@ const features = [
             <span></span>
           </div>
           <div class="mascot-body">
-            <span class="badge">NFT</span>
+            <span class="badge">TAMP</span>
           </div>
           <div class="coin-stack stack-left">
             <i></i>
@@ -187,17 +187,17 @@ const features = [
     </section>
 
     <section class="category-strip" aria-label="Categorias">
-      <span data-reveal style="--delay: 80ms">Arte generativa</span>
-      <span data-reveal style="--delay: 150ms">Fotografia</span>
-      <span data-reveal style="--delay: 220ms">3D collectibles</span>
-      <span data-reveal style="--delay: 290ms">Musica</span>
-      <span data-reveal style="--delay: 360ms">Avatares</span>
+      <span data-reveal style="--delay: 80ms">Canecas</span>
+      <span data-reveal style="--delay: 150ms">Camisetas</span>
+      <span data-reveal style="--delay: 220ms">Presentes</span>
+      <span data-reveal style="--delay: 290ms">Empresas</span>
+      <span data-reveal style="--delay: 360ms">Eventos</span>
     </section>
 
-    <section class="section-grid" id="market">
+    <section class="section-grid" id="about">
       <div class="section-heading" data-reveal>
-        <p class="eyebrow"><Flame :size="17" /> Recursos</p>
-        <h2>Ferramentas para um marketplace moderno.</h2>
+        <p class="eyebrow"><Flame :size="17" /> TAMP Estampados</p>
+        <h2>Personalizados com cara de presente bem pensado.</h2>
       </div>
       <div class="feature-grid">
         <article
@@ -214,13 +214,13 @@ const features = [
       </div>
     </section>
 
-    <section class="section-block" id="collections">
+    <section class="section-block" id="products">
       <div class="section-heading split" data-reveal>
         <div>
-          <p class="eyebrow"><BadgeCheck :size="17" /> Colecoes em alta</p>
-          <h2>Leiloes que estao movimentando o mercado.</h2>
+          <p class="eyebrow"><BadgeCheck :size="17" /> Produtos</p>
+          <h2>Escolha o produto e envie sua ideia.</h2>
         </div>
-        <a class="text-link" href="#auctions">Ver todos <ArrowRight :size="17" /></a>
+        <a class="text-link" href="https://wa.me/5541988180340" target="_blank" rel="noreferrer">Falar com a TAMP <ArrowRight :size="17" /></a>
       </div>
 
       <div class="collection-grid">
@@ -249,33 +249,33 @@ const features = [
       </div>
     </section>
 
-    <section class="market-band" id="auctions" data-reveal>
+    <section class="market-band" id="contact" data-reveal>
       <div>
-        <p class="eyebrow"><Clock3 :size="17" /> Leilao ao vivo</p>
-        <h2>Ofertas abertas com ritmo de galeria premium.</h2>
+        <p class="eyebrow"><Clock3 :size="17" /> Atendimento rapido</p>
+        <h2>Chame no WhatsApp e comece sua estampa hoje.</h2>
       </div>
       <div class="auction-panel">
         <div class="auction-price">
-          <span>Lance atual</span>
-          <strong>8.64 ETH</strong>
+          <span>Contato</span>
+          <strong>41 9 8818-0340</strong>
         </div>
         <div class="auction-timer">
-          <span>12h</span>
-          <span>48m</span>
-          <span>09s</span>
+          <span>Arte</span>
+          <span>Aprov.</span>
+          <span>Prod.</span>
         </div>
-        <button class="primary-btn">
-          Dar lance
+        <a class="primary-btn" href="https://wa.me/5541988180340" target="_blank" rel="noreferrer">
+          WhatsApp
           <ArrowRight :size="19" />
-        </button>
+        </a>
       </div>
     </section>
 
-    <section class="section-block" id="creators">
+    <section class="section-block" id="process">
       <div class="section-heading split" data-reveal>
         <div>
-          <p class="eyebrow"><Sparkles :size="17" /> Top sellers</p>
-          <h2>Criadores com maior volume.</h2>
+          <p class="eyebrow"><Sparkles :size="17" /> Como funciona</p>
+          <h2>Da ideia ao produto pronto.</h2>
         </div>
       </div>
       <div class="seller-grid">
@@ -289,7 +289,7 @@ const features = [
           <span class="avatar" :style="{ '--avatar-color': seller[3] }">{{ seller[0] }}</span>
           <div>
             <h3>{{ seller[1] }}</h3>
-            <p>{{ seller[2] }} vendidos</p>
+            <p>{{ seller[2] }}</p>
           </div>
           <BadgeCheck :size="20" />
         </article>
