@@ -17,6 +17,13 @@ import {
 onMounted(() => {
   const revealItems = document.querySelectorAll('[data-reveal]')
 
+  if (!('IntersectionObserver' in window)) {
+    revealItems.forEach((item) => item.classList.add('is-visible'))
+    return
+  }
+
+  document.documentElement.classList.add('reveal-ready')
+
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
