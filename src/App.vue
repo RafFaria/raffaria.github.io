@@ -145,44 +145,30 @@ const features = [
         </dl>
       </div>
 
-      <div class="hero-art mascot-stage" aria-label="Mascote animado da TAMP" data-reveal style="--delay: 180ms">
-        <span class="spark spark-one"></span>
-        <span class="spark spark-two"></span>
-        <span class="spark spark-three"></span>
-        <span class="orbit orbit-one">B</span>
-        <span class="orbit orbit-two">Ξ</span>
+      <div class="hero-art mascot-stage" aria-label="Caneca personalizada TAMP Estampados" data-reveal style="--delay: 180ms">
+        <span class="spark spark-one" aria-hidden="true"></span>
+        <span class="spark spark-two" aria-hidden="true"></span>
+        <span class="spark spark-three" aria-hidden="true"></span>
+        <span class="orbit orbit-one" aria-hidden="true">B</span>
+        <span class="orbit orbit-two" aria-hidden="true">Ξ</span>
         <span class="arrow-surge" aria-hidden="true"></span>
 
-        <div class="mascot">
-          <div class="mascot-head">
-            <span class="hair hair-one"></span>
-            <span class="hair hair-two"></span>
-            <span class="hair hair-three"></span>
-            <span class="glasses">
-              <i></i>
-              <i></i>
-            </span>
-            <span class="nose"></span>
-            <span class="mouth"></span>
-          </div>
-          <div class="scarf">
+        <div class="tamp-mug-animation">
+          <div class="tamp-mug__steam" aria-hidden="true">
+            <span></span>
+            <span></span>
             <span></span>
           </div>
-          <div class="mascot-body">
-            <span class="badge">TAMP</span>
+
+          <div class="tamp-mug">
+            <div class="tamp-mug__handle" aria-hidden="true"></div>
+            <div class="tamp-mug__body">
+              <div class="tamp-mug__inside" aria-hidden="true"></div>
+              <img class="tamp-mug__logo" :src="logoUrl" alt="TAMP Estampados" />
+            </div>
           </div>
-          <div class="coin-stack stack-left">
-            <i></i>
-            <i></i>
-            <i></i>
-          </div>
-          <div class="coin-stack stack-right">
-            <i></i>
-            <i></i>
-            <i></i>
-            <i></i>
-          </div>
-          <div class="front-coin">B</div>
+
+          <div class="tamp-mug__shadow" aria-hidden="true"></div>
         </div>
       </div>
     </section>
