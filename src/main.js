@@ -77,6 +77,14 @@ document.querySelectorAll("[data-filter]").forEach((button) => {
 // A prévia é apenas visual. Nenhum pedido ou dado é armazenado no site.
 const customForm = document.querySelector("#customizer");
 const customText = document.querySelector("#custom-text");
+const imageInput = document.querySelector("#custom-image");
+const imageControls = document.querySelector("#image-controls");
+const imageStatus = document.querySelector("#image-status");
+const imageScale = document.querySelector("#image-scale");
+const imageX = document.querySelector("#image-x");
+const imageY = document.querySelector("#image-y");
+let customImage = null;
+let imageRequest = 0;
 const swatches = document.querySelector("#color-options");
 swatches.innerHTML = colors
   .map(
@@ -96,17 +104,99 @@ function updatePreview() {
     id: "custom",
     design: "custom",
     text: customText.value,
+    image: customImage ? { src: customImage, scale: Number(imageScale.value) / 100, x: Number(imageX.value), y: Number(imageY.value) } : null,
     color: selectedColor().value,
   });
   document.querySelector("#text-count").textContent =
     `${customText.value.length}/24`;
 }
+function clearImage() {
+  imageRequest++;
+  customImage = null;
+  imageInput.value = "";
+  imageControls.hidden = true;
+  imageControls.disabled = true;
+  imageStatus.textContent = "Imagem removida.";
+  updatePreview();
+}
+document.querySelector("#remove-image").addEventListener("click", () => {
+  clearImage();
+  imageInput.focus();
+});
+imageControls.addEventListener("input", updatePreview);
+imageInput.addEventListener("change", async () => {
+  const file = imageInput.files[0];
+  if (!file) return;
+  const request = ++imageRequest;
+  if (!["image/jpeg", "image/png", "image/webp"].includes(file.type) || file.size > 10 * 1024 * 1024) {
+    imageStatus.textContent = "Escolha um JPG, PNG ou WebP de até 10 MB. A prévia anterior foi mantida.";
+    imageInput.value = "";
+    return;
+  }
+  imageStatus.textContent = "Preparando sua imagem…";
+  const url = URL.createObjectURL(file);
+  try {
+    const photo = new Image();
+    photo.src = url;
+    await photo.decode();
+    if (request !== imageRequest) return;
+    const ratio = Math.min(1, 1600 / Math.max(photo.naturalWidth, photo.naturalHeight));
+    const canvas = document.createElement("canvas");
+    canvas.width = Math.max(1, Math.round(photo.naturalWidth * ratio));
+    canvas.height = Math.max(1, Math.round(photo.naturalHeight * ratio));
+    canvas.getContext("2d").drawImage(photo, 0, 0, canvas.width, canvas.height);
+    customImage = canvas.toDataURL("image/png");
+    imageScale.value = "100";
+    imageX.value = imageY.value = "0";
+    imageControls.hidden = imageControls.disabled = false;
+    imageStatus.textContent = "Imagem pronta. Ajuste a posição e o tamanho abaixo; apague a frase se preferir só a foto.";
+    updatePreview();
+  } catch {
+    if (request === imageRequest) {
+      imageStatus.textContent = "Não foi possível abrir essa imagem. Tente outro arquivo. A prévia anterior foi mantida.";
+      imageInput.value = "";
+    }
+  } finally {
+    URL.revokeObjectURL(url);
+  }
+});
+document.querySelector("#download-preview").addEventListener("click", async (event) => {
+  const button = event.currentTarget;
+  button.disabled = true;
+  try {
+    const svg = document.querySelector("#custom-mug svg").cloneNode(true);
+    svg.querySelectorAll("text").forEach((text) => text.setAttribute("font-family", "Arial, sans-serif"));
+    const picture = new Image();
+    picture.src = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(new XMLSerializer().serializeToString(svg))}`;
+    await picture.decode();
+    const canvas = document.createElement("canvas");
+    canvas.width = 880;
+    canvas.height = 830;
+    const context = canvas.getContext("2d");
+    context.fillStyle = "#fffaf3";
+    context.fillRect(0, 0, canvas.width, canvas.height);
+    context.drawImage(picture, 0, 0, 880, 780);
+    context.fillStyle = "#293b34";
+    context.font = "20px Arial";
+    context.textAlign = "center";
+    context.fillText("TAMP • Prévia ilustrativa", 440, 805);
+    const link = document.createElement("a");
+    link.download = "minha-caneca-tamp.png";
+    link.href = canvas.toDataURL("image/png");
+    link.click();
+    imageStatus.textContent = "Prévia pronta para baixar. Envie também a arte original no WhatsApp.";
+  } catch {
+    imageStatus.textContent = "Não foi possível baixar a prévia. Tente novamente.";
+  } finally {
+    button.disabled = false;
+  }
+});
 customText.addEventListener("input", updatePreview);
 swatches.addEventListener("change", updatePreview);
 customForm.addEventListener("submit", (event) => {
   event.preventDefault();
   const phrase = customText.value.trim();
-  const message = `Olá! Experimentei o personalizador da TAMP e quero conversar sobre uma caneca. ${phrase ? `Minha ideia de frase: “${phrase}”. ` : ""}Cor de inspiração: ${selectedColor().name}. Podemos combinar a arte e o modelo?`;
+  const message = `Olá! Experimentei o personalizador da TAMP e quero conversar sobre uma caneca. ${phrase ? `Minha ideia de frase: “${phrase}”. ` : ""}Cor de inspiração: ${selectedColor().name}. ${customImage ? "Também quero usar uma imagem e vou enviar o arquivo original nesta conversa. " : ""}Podemos combinar a arte e o modelo?`;
   // Mesma aba: evita abrir uma nova janela a cada clique no WhatsApp.
   window.location.assign(whatsappUrl(message));
 });

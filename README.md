@@ -34,6 +34,14 @@ Prefira imagens WebP ou AVIF otimizadas e textos alternativos que descrevam cada
 
 A capa de compartilhamento é demonstrativa. Quando o domínio estiver definido, atualize as metatags em `index.html`, especialmente `og:url` e `og:image`, usando URLs absolutas. A capa PNG de 1200 × 630 pixels já está incluída para compatibilidade com redes sociais. Ao alterar a arte fonte SVG, exporte novamente o PNG.
 
+## Imagem no personalizador
+
+O cliente pode selecionar JPG, PNG ou WebP de até 10 MB, ajustar tamanho e posição e combinar a imagem com uma frase. Para usar somente a imagem, basta apagar o texto. O botão **Remover imagem** restaura a prévia de texto.
+
+O processamento acontece no navegador, sem upload nem armazenamento no servidor. A imagem da prévia é reduzida para até 1600 pixels no maior lado. O botão **Baixar prévia** exporta uma simulação PNG; a arte original deve ser enviada separadamente na conversa do WhatsApp. O download usa Arial para manter a exportação independente de fontes externas.
+
+Funciona em hospedagem estática, incluindo GitHub Pages. A prévia não é um arquivo final de produção.
+
 ## Publicar no GitHub Pages
 
 O projeto contém o workflow `.github/workflows/deploy.yml`, mas **a publicação ainda não foi realizada e não há URL pública definida**.

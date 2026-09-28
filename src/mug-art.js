@@ -101,6 +101,7 @@ export function mugArt({
   color = "#f6adbe",
   text = "",
   className = "",
+  image = null,
 } = {}) {
   const prefix = `mug-${String(id).replace(/[^a-zA-Z0-9_-]/g, "") || "art"}-${++mugSequence}`;
   const ceramic = validColor(color);
@@ -121,7 +122,7 @@ export function mugArt({
   <path d="M337 129 C373 118 399 132 400 166" fill="none" stroke="${highlight}" stroke-opacity=".75" stroke-width="4" stroke-linecap="round"/>
   <path d="M86 86 C95 108 322 108 334 86 L324 290 C320 317 288 332 210 334 C138 333 101 317 97 290Z" fill="url(#${prefix}-body)"/>
   <path d="M100 287 Q116 323 211 325 Q290 324 322 295 L321 307 Q299 337 211 337 Q127 335 102 309Z" fill="${shadow}" opacity=".35"/>
-  <g clip-path="url(#${prefix}-print)">${artwork(design, text)}</g>
+  <g clip-path="url(#${prefix}-print)">${design === "custom" && image ? `<image href="${escapeXml(image.src)}" x="${210 - 85 * image.scale + image.x}" y="${190 - 70 * image.scale + image.y}" width="${170 * image.scale}" height="${140 * image.scale}" preserveAspectRatio="xMidYMid meet"/>${text.trim() ? `<text x="210" y="296" ${commonType} font-size="16" font-weight="700" textLength="${Math.min(210, text.trim().length * 9)}" lengthAdjust="spacingAndGlyphs">${escapeXml(text.trim())}</text>` : ""}` : artwork(design, text)}</g>
   <path d="M96 114 Q111 122 121 121 L125 282 Q119 301 107 292Z" fill="url(#${prefix}-shine)"/>
   <ellipse cx="210" cy="87" rx="124" ry="32" fill="${highlight}"/>
   <ellipse cx="210" cy="85" rx="114" ry="24" fill="url(#${prefix}-inside)"/>

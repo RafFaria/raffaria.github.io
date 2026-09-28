@@ -2543,3 +2543,11 @@ fieldset {
     grid-template-rows: 46px minmax(0, 1fr) 30px 26px;
   }
 }
+
+/* Image personalization */
+.image-customizer { margin: 24px 0; }
+.image-customizer input[type="file"] { display: block; width: 100%; max-width: 100%; margin: 12px 0; font: inherit; }
+.image-customizer input[type="range"] { display: block; width: 100%; margin: 12px 0 20px; accent-color: #385446; }
+.image-customizer .button { margin-top: 12px; }
+#image-controls[hidden] { display: none; }
+.image-customizer input[type="file"]::file-selector-button { padding: 10px 12px; margin-right: 8px; border: 1px solid #385446; border-radius: 8px; background: #fffaf3; color: #293b34; cursor: pointer; }

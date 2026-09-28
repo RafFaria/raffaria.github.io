@@ -301,7 +301,7 @@
               Começa com uma ideia.<br />Termina com <span>a sua cara.</span>
             </h2>
             <p>
-              Uma frase sua, uma cor que combina com você. Experimente uma ideia
+              Uma foto, uma frase sua, uma cor que combina com você. Experimente uma ideia
               aqui e leve a conversa para o WhatsApp.
             </p>
             <form
@@ -325,6 +325,23 @@
               <p class="field-hint" id="text-help">
                 Até 24 caracteres para experimentar na ilustração.
               </p>
+              <div class="image-customizer">
+                <label for="custom-image">Envie uma foto ou arte</label>
+                <input id="custom-image" type="file" accept="image/png,image/jpeg,image/webp" aria-describedby="image-help image-status" />
+                <p class="field-hint" id="image-help">JPG, PNG ou WebP, até 10 MB. Sua imagem fica apenas neste navegador. Para encomendar, envie também o arquivo original na conversa do WhatsApp.</p>
+                <p class="field-hint" id="image-status" role="status" aria-live="polite"></p>
+                <fieldset id="image-controls" hidden disabled>
+                  <legend>Ajuste sua imagem</legend>
+                  <label for="image-scale">Tamanho</label>
+                  <input id="image-scale" type="range" min="40" max="180" value="100" />
+                  <label for="image-x">Posição horizontal</label>
+                  <input id="image-x" type="range" min="-70" max="70" value="0" />
+                  <label for="image-y">Posição vertical</label>
+                  <input id="image-y" type="range" min="-70" max="70" value="0" />
+                  <button id="remove-image" type="button" class="button">Remover imagem</button>
+                </fieldset>
+                <button id="download-preview" type="button" class="button">Baixar prévia</button>
+              </div>
               <fieldset>
                 <legend>Escolha uma cor para inspirar</legend>
                 <div class="color-options" id="color-options"></div>
